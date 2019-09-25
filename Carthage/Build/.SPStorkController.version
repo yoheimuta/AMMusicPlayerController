@@ -1,0 +1,10 @@
+{
+  "commitish" : "1.7.9",
+  "iOS" : [
+    {
+      "name" : "SPStorkController",
+      "hash" : "c7fd387b002feb764003089a03d56b8a4e1a778e7f1dfd19766987da21e1e211",
+      "swiftToolchainVersion" : "5.0 (swiftlang-1001.0.69.5 clang-1001.0.46.3)"
+    }
+  ]
+}

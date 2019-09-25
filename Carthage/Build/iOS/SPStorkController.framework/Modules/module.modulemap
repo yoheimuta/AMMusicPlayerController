@@ -1,0 +1,11 @@
+framework module SPStorkController {
+  umbrella header "SPStorkController.h"
+
+  export *
+  module * { export * }
+}
+
+module SPStorkController.Swift {
+    header "SPStorkController-Swift.h"
+    requires objc
+}
