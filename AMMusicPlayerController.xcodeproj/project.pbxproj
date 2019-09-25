@@ -108,6 +108,7 @@
 				FF20C096233B52E7002E796C /* Sources */,
 				FF20C097233B52E7002E796C /* Frameworks */,
 				FF20C098233B52E7002E796C /* Resources */,
+				FF20C0E9233B547B002E796C /* Lint */,
 			);
 			buildRules = (
 			);
@@ -189,6 +190,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FF20C0E9233B547B002E796C /* Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Lint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -exo pipefail\n\nPODS_ROOT=./Demo/Pods\n\nif [ -z \"$CI\" ]; then\n${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n${PODS_ROOT}/SwiftLint/swiftlint\n\n${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat AMMusicPlayerController Demo/Demo\nelse\n${PODS_ROOT}/SwiftLint/swiftlint --strict\n${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat AMMusicPlayerController Demo/Demo --dryrun | tee /dev/stderr | grep 'swiftformat completed. 0'\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FF20C096233B52E7002E796C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -268,7 +290,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -326,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
