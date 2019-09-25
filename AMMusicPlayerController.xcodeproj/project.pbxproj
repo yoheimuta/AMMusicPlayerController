@@ -15,6 +15,7 @@
 		FF20C0F2233B6857002E796C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C0ED233B6856002E796C /* RxSwift.framework */; };
 		FF20C0F3233B6857002E796C /* SPStorkController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C0EE233B6856002E796C /* SPStorkController.framework */; };
 		FF20C0F4233B6857002E796C /* RxMusicPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C0EF233B6856002E796C /* RxMusicPlayer.framework */; };
+		FF20C0F7233B69AF002E796C /* AMMusicPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C0F6233B69AF002E796C /* AMMusicPlayerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		FF20C0ED233B6856002E796C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		FF20C0EE233B6856002E796C /* SPStorkController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SPStorkController.framework; path = Carthage/Build/iOS/SPStorkController.framework; sourceTree = "<group>"; };
 		FF20C0EF233B6856002E796C /* RxMusicPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMusicPlayer.framework; path = Carthage/Build/iOS/RxMusicPlayer.framework; sourceTree = "<group>"; };
+		FF20C0F6233B69AF002E796C /* AMMusicPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMusicPlayerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +89,9 @@
 		FF20C09C233B52E7002E796C /* AMMusicPlayerController */ = {
 			isa = PBXGroup;
 			children = (
-				FF20C09D233B52E7002E796C /* AMMusicPlayerController.h */,
 				FF20C09E233B52E7002E796C /* Info.plist */,
+				FF20C09D233B52E7002E796C /* AMMusicPlayerController.h */,
+				FF20C0F6233B69AF002E796C /* AMMusicPlayerController.swift */,
 			);
 			path = AMMusicPlayerController;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				TargetAttributes = {
 					FF20C099233B52E7002E796C = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 					};
 					FF20C0A2233B52E7002E796C = {
 						CreatedOnToolsVersion = 10.2;
@@ -265,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF20C0F7233B69AF002E796C /* AMMusicPlayerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +417,7 @@
 		FF20C0AF233B52E8002E796C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -432,6 +438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.yoheimuta.AMMusicPlayerController;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -440,6 +447,7 @@
 		FF20C0B0233B52E8002E796C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -468,6 +476,7 @@
 		FF20C0B2233B52E8002E796C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AMMusicPlayerControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,6 +494,7 @@
 		FF20C0B3233B52E8002E796C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AMMusicPlayerControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

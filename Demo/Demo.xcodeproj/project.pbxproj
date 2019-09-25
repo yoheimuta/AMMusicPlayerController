@@ -14,6 +14,7 @@
 		FF20C0C8233B5307002E796C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF20C0C7233B5307002E796C /* Assets.xcassets */; };
 		FF20C0CB233B5307002E796C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF20C0C9233B5307002E796C /* LaunchScreen.storyboard */; };
 		FF20C0D6233B5307002E796C /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C0D5233B5307002E796C /* DemoTests.swift */; };
+		FF20C0F9233B6D3B002E796C /* AMMusicPlayerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C0F8233B6D3B002E796C /* AMMusicPlayerController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		FF20C0D1233B5307002E796C /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF20C0D5233B5307002E796C /* DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTests.swift; sourceTree = "<group>"; };
 		FF20C0D7233B5307002E796C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF20C0F8233B6D3B002E796C /* AMMusicPlayerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AMMusicPlayerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF20C0F9233B6D3B002E796C /* AMMusicPlayerController.framework in Frameworks */,
 				B9300ECA8E1F9A74555E8144 /* Pods_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +67,7 @@
 		4B8AC739BC5679D8FCAB73B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF20C0F8233B6D3B002E796C /* AMMusicPlayerController.framework */,
 				11BFDFC9971DCAD04F71CD6D /* Pods_Demo.framework */,
 			);
 			name = Frameworks;
