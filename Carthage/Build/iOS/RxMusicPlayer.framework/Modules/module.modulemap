@@ -1,0 +1,11 @@
+framework module RxMusicPlayer {
+  umbrella header "RxMusicPlayer.h"
+
+  export *
+  module * { export * }
+}
+
+module RxMusicPlayer.Swift {
+    header "RxMusicPlayer-Swift.h"
+    requires objc
+}
