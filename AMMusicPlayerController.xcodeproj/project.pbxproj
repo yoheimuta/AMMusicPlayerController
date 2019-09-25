@@ -3,13 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		FF20C0A4233B52E7002E796C /* AMMusicPlayerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C09A233B52E7002E796C /* AMMusicPlayerController.framework */; };
 		FF20C0A9233B52E8002E796C /* AMMusicPlayerControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C0A8233B52E7002E796C /* AMMusicPlayerControllerTests.swift */; };
 		FF20C0AB233B52E8002E796C /* AMMusicPlayerController.h in Headers */ = {isa = PBXBuildFile; fileRef = FF20C09D233B52E7002E796C /* AMMusicPlayerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF20C0F0233B6857002E796C /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C0EB233B6856002E796C /* RxRelay.framework */; };
+		FF20C0F1233B6857002E796C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C0EC233B6856002E796C /* RxCocoa.framework */; };
+		FF20C0F2233B6857002E796C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C0ED233B6856002E796C /* RxSwift.framework */; };
+		FF20C0F3233B6857002E796C /* SPStorkController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C0EE233B6856002E796C /* SPStorkController.framework */; };
+		FF20C0F4233B6857002E796C /* RxMusicPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C0EF233B6856002E796C /* RxMusicPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +34,11 @@
 		FF20C0A3233B52E7002E796C /* AMMusicPlayerControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMMusicPlayerControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF20C0A8233B52E7002E796C /* AMMusicPlayerControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMusicPlayerControllerTests.swift; sourceTree = "<group>"; };
 		FF20C0AA233B52E8002E796C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF20C0EB233B6856002E796C /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		FF20C0EC233B6856002E796C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		FF20C0ED233B6856002E796C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		FF20C0EE233B6856002E796C /* SPStorkController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SPStorkController.framework; path = Carthage/Build/iOS/SPStorkController.framework; sourceTree = "<group>"; };
+		FF20C0EF233B6856002E796C /* RxMusicPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMusicPlayer.framework; path = Carthage/Build/iOS/RxMusicPlayer.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +46,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF20C0F0233B6857002E796C /* RxRelay.framework in Frameworks */,
+				FF20C0F1233B6857002E796C /* RxCocoa.framework in Frameworks */,
+				FF20C0F2233B6857002E796C /* RxSwift.framework in Frameworks */,
+				FF20C0F3233B6857002E796C /* SPStorkController.framework in Frameworks */,
+				FF20C0F4233B6857002E796C /* RxMusicPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +71,7 @@
 				FF20C09C233B52E7002E796C /* AMMusicPlayerController */,
 				FF20C0A7233B52E7002E796C /* AMMusicPlayerControllerTests */,
 				FF20C09B233B52E7002E796C /* Products */,
+				FF20C0EA233B6855002E796C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +102,18 @@
 			path = AMMusicPlayerControllerTests;
 			sourceTree = "<group>";
 		};
+		FF20C0EA233B6855002E796C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF20C0EC233B6856002E796C /* RxCocoa.framework */,
+				FF20C0EF233B6856002E796C /* RxMusicPlayer.framework */,
+				FF20C0EB233B6856002E796C /* RxRelay.framework */,
+				FF20C0ED233B6856002E796C /* RxSwift.framework */,
+				FF20C0EE233B6856002E796C /* SPStorkController.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -109,6 +137,7 @@
 				FF20C097233B52E7002E796C /* Frameworks */,
 				FF20C098233B52E7002E796C /* Resources */,
 				FF20C0E9233B547B002E796C /* Lint */,
+				FF20C0F5233B6870002E796C /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -208,6 +237,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -exo pipefail\n\nPODS_ROOT=./Demo/Pods\n\nif [ -z \"$CI\" ]; then\n${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n${PODS_ROOT}/SwiftLint/swiftlint\n\n${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat AMMusicPlayerController Demo/Demo\nelse\n${PODS_ROOT}/SwiftLint/swiftlint --strict\n${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat AMMusicPlayerController Demo/Demo --dryrun | tee /dev/stderr | grep 'swiftformat completed. 0'\nfi\n";
+		};
+		FF20C0F5233B6870002E796C /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/input.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = Carthage;
+			outputFileListPaths = (
+				"$(SRCROOT)/output.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -369,6 +418,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AMMusicPlayerController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -393,6 +446,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AMMusicPlayerController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
