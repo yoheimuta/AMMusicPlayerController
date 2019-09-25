@@ -4,4 +4,10 @@
    <FileRef
       location = "container:AMMusicPlayerController.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Demo/Demo.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Demo/Pods/Pods.xcodeproj">
+   </FileRef>
 </Workspace>
