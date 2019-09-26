@@ -6,29 +6,58 @@
 //  Copyright © 2019 YOSHIMUTA YOHEI. All rights reserved.
 //
 
+import RxMusicPlayer
 import SPStorkController
 import UIKit
 
 public class AMMusicPlayerController: UIViewController {
+    // Music player.
+    public private(set) var player: RxMusicPlayer!
 
-    let tableView = UITableView()
-    var lightStatusBar: Bool = false
+    @IBOutlet private var tableView: UITableView!
+
+    private var lightStatusBar: Bool = false
     public override var preferredStatusBarStyle: UIStatusBarStyle {
         return lightStatusBar ? .lightContent : .default
     }
 
-    private var data = [
-        "Assembly", "C", "C++", "Java", "JavaScript", "Php", "Python",
-        "Swift", "Kotlin", "Assembly", "C", "C++", "Java", "JavaScript",
-        "Php", "Python", "Objective-C", "Swift", "Kotlin", "Assembly",
-        "C", "C++", "Java", "JavaScript", "Php", "Python", "Objective-C",
-    ]
+    // swiftlint:disable:next weak_delegate
+    public var tableViewDelegate = AMMusicPlayerTableViewDeletegate()
+    public var tableViewDataSource = AMMusicPlayerTableViewDataSource()
 
+    /**
+     Initialize a controller.
+     */
+    public static func make(player: RxMusicPlayer) -> AMMusicPlayerController {
+        let controller = instantiate()
+        controller.player = player
+        return controller
+    }
+
+    /**
+     Initialize a controller.
+     */
+    public static func make(urls: [URL] = [],
+                            index: Int = 0) -> AMMusicPlayerController {
+        let controller = instantiate()
+        controller.player = RxMusicPlayer(items: urls.map { RxMusicPlayerItem(url: $0) })
+        controller.player.playIndex = index
+        return controller
+    }
+
+    private static func instantiate() -> AMMusicPlayerController {
+        return UIStoryboard(name: "AMMusicPlayerController", bundle: Bundle(for: self))
+            // swiftlint:disable:next force_cast
+            .instantiateInitialViewController() as! AMMusicPlayerController
+    }
+
+    /**
+     Present the player view controller.
+     */
     public func presentPlayer(src: UIViewController,
                               animated flag: Bool = true,
                               completion: (() -> Void)? = nil) {
         let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.storkDelegate = self
         transitioningDelegate = transitionDelegate
         modalPresentationStyle = .custom
         src.present(self, animated: flag, completion: completion)
@@ -39,10 +68,10 @@ public class AMMusicPlayerController: UIViewController {
         view.backgroundColor = UIColor.white
         modalPresentationCapturesStatusBarAppearance = true
 
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        view.addSubview(tableView)
+        tableViewDelegate.tableView = tableView
+        tableView.delegate = tableViewDelegate
+        tableViewDataSource.player = player
+        tableView.dataSource = tableViewDataSource
 
         updateLayout(with: view.frame.size)
     }
@@ -66,42 +95,5 @@ public class AMMusicPlayerController: UIViewController {
 
     @objc func dismissAction() {
         SPStorkController.dismissWithConfirmation(controller: self, completion: nil)
-    }
-}
-
-extension AMMusicPlayerController: UITableViewDataSource {
-
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row]
-        cell.transform = .identity
-        return cell
-    }
-
-    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return data.count
-    }
-
-    public func tableView(_: UITableView, commit _: UITableViewCell.EditingStyle, forRowAt _: IndexPath) {
-    }
-}
-
-extension AMMusicPlayerController: UITableViewDelegate {
-
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView == tableView {
-            SPStorkController.scrollViewDidScroll(scrollView)
-        }
-    }
-}
-
-extension AMMusicPlayerController: SPStorkControllerDelegate {
-
-    public func didDismissStorkByTap() {
-        print("SPStorkControllerDelegate - didDismissStorkByTap")
-    }
-
-    public func didDismissStorkBySwipe() {
-        print("SPStorkControllerDelegate - didDismissStorkBySwipe")
     }
 }
