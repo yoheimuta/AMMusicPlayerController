@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		FF20C0CB233B5307002E796C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF20C0C9233B5307002E796C /* LaunchScreen.storyboard */; };
 		FF20C0D6233B5307002E796C /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C0D5233B5307002E796C /* DemoTests.swift */; };
 		FF20C0F9233B6D3B002E796C /* AMMusicPlayerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C0F8233B6D3B002E796C /* AMMusicPlayerController.framework */; };
+		FF20C110233CCBC3002E796C /* AMMusicPlayerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF20C0F8233B6D3B002E796C /* AMMusicPlayerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +27,20 @@
 			remoteInfo = Demo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FF20C111233CCBC3002E796C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FF20C110233CCBC3002E796C /* AMMusicPlayerController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		11BFDFC9971DCAD04F71CD6D /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +150,8 @@
 				FF20C0B9233B5306002E796C /* Sources */,
 				FF20C0BA233B5306002E796C /* Frameworks */,
 				FF20C0BB233B5306002E796C /* Resources */,
+				FF20C111233CCBC3002E796C /* Embed Frameworks */,
+				FF20C112233CCC53002E796C /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -243,6 +260,26 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FF20C112233CCC53002E796C /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/input.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = Carthage;
+			outputFileListPaths = (
+				"$(SRCROOT)/../output.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

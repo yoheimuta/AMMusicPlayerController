@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/yoheimuta/Write/program_tmp/swift/AMMusicPlayerController/AMMusicPlayerController/ProgressSlider.swift">
-   </FileRef>
-   <FileRef
       location = "container:AMMusicPlayerController.xcodeproj">
    </FileRef>
    <FileRef
