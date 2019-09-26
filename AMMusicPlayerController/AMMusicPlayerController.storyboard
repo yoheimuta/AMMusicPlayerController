@@ -127,25 +127,33 @@
                                             <outlet property="titleLabel" destination="X6H-v4-tQN" id="KHD-ha-dvW"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LyricsCell" id="m5w-UY-7rD" customClass="LyricsCell" customModule="AMMusicPlayerController" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="596" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LyricsCell" rowHeight="232" id="m5w-UY-7rD" customClass="LyricsCell" customModule="AMMusicPlayerController" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="596" width="414" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m5w-UY-7rD" id="QtS-Bk-OhQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="231.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6A-7G-x9H">
-                                                    <rect key="frame" x="10" y="11" width="394" height="21.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lyrics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQY-JL-yah">
+                                                    <rect key="frame" x="20" y="21" width="49" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="No Data" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6A-7G-x9H">
+                                                    <rect key="frame" x="25" y="58" width="374" height="163.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="J6A-7G-x9H" secondAttribute="trailing" constant="10" id="7ue-8L-S1e"/>
-                                                <constraint firstItem="J6A-7G-x9H" firstAttribute="top" secondItem="QtS-Bk-OhQ" secondAttribute="top" constant="11" id="NCc-cs-iNz"/>
-                                                <constraint firstItem="J6A-7G-x9H" firstAttribute="leading" secondItem="QtS-Bk-OhQ" secondAttribute="leading" constant="10" id="ZuC-9w-1Nb"/>
-                                                <constraint firstAttribute="bottom" secondItem="J6A-7G-x9H" secondAttribute="bottom" constant="11" id="b9v-3Q-rPW"/>
+                                                <constraint firstItem="J6A-7G-x9H" firstAttribute="trailing" secondItem="QtS-Bk-OhQ" secondAttribute="trailingMargin" constant="5" id="66q-YW-pyg"/>
+                                                <constraint firstItem="rQY-JL-yah" firstAttribute="leading" secondItem="QtS-Bk-OhQ" secondAttribute="leadingMargin" id="Uff-HH-2z5"/>
+                                                <constraint firstItem="rQY-JL-yah" firstAttribute="top" secondItem="QtS-Bk-OhQ" secondAttribute="topMargin" constant="10" id="YbH-V0-wQL"/>
+                                                <constraint firstAttribute="bottom" secondItem="J6A-7G-x9H" secondAttribute="bottom" constant="10" id="asZ-5g-wDq"/>
+                                                <constraint firstItem="J6A-7G-x9H" firstAttribute="leading" secondItem="QtS-Bk-OhQ" secondAttribute="leadingMargin" constant="5" id="cbb-rh-5rp"/>
+                                                <constraint firstItem="J6A-7G-x9H" firstAttribute="top" secondItem="rQY-JL-yah" secondAttribute="bottom" constant="16" id="uMz-iX-uwb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

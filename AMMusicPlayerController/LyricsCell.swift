@@ -13,10 +13,11 @@ import UIKit
 class LyricsCell: UITableViewCell {
     @IBOutlet private var lyricsLabel: UILabel!
 
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
 
     func run(_ player: RxMusicPlayer) {

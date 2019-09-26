@@ -23,7 +23,12 @@ class PlayerCell: UITableViewCell {
     @IBOutlet private var shuffleButton: UIButton!
     @IBOutlet private var repeatButton: UIButton!
 
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
 
     func run(_ player: RxMusicPlayer) {
         // 1) Control views

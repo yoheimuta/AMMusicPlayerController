@@ -7,6 +7,7 @@
 //
 
 import RxMusicPlayer
+import RxSwift
 import SPStorkController
 import UIKit
 
@@ -16,6 +17,7 @@ public class AMMusicPlayerController: UIViewController {
 
     @IBOutlet private var tableView: UITableView!
 
+    private let disposeBag = DisposeBag()
     private var lightStatusBar: Bool = false
     public override var preferredStatusBarStyle: UIStatusBarStyle {
         return lightStatusBar ? .lightContent : .default
@@ -72,6 +74,14 @@ public class AMMusicPlayerController: UIViewController {
         tableView.delegate = tableViewDelegate
         tableViewDataSource.player = player
         tableView.dataSource = tableViewDataSource
+
+        player.rx.currentItemLyrics()
+            .do(onNext: { [weak self] _ in
+                self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 1)],
+                                           with: UITableView.RowAnimation.automatic)
+            })
+            .drive()
+            .disposed(by: disposeBag)
 
         updateLayout(with: view.frame.size)
     }
