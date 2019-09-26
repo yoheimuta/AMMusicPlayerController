@@ -26,6 +26,7 @@ public class AMMusicPlayerController: UIViewController {
     // swiftlint:disable:next weak_delegate
     public var tableViewDelegate = AMMusicPlayerTableViewDeletegate()
     public var tableViewDataSource = AMMusicPlayerTableViewDataSource()
+    public weak var delegate: AMMusicPlayerDelegate?
 
     private var config: AMMusicPlayerConfig!
 
@@ -68,6 +69,7 @@ public class AMMusicPlayerController: UIViewController {
                               animated flag: Bool = true,
                               completion: (() -> Void)? = nil) {
         let transitionDelegate = SPStorkTransitioningDelegate()
+        transitionDelegate.storkDelegate = self
         transitionDelegate.confirmDelegate = self
         transitioningDelegate = transitionDelegate
         modalPresentationStyle = .custom
@@ -143,5 +145,16 @@ extension AMMusicPlayerController: SPStorkControllerConfirmDelegate {
         alertController.addAction(cancel)
 
         present(alertController, animated: true)
+    }
+}
+
+extension AMMusicPlayerController: SPStorkControllerDelegate {
+
+    public func didDismissStorkByTap() {
+        delegate?.musicPlayerControllerDidDismissByTap()
+    }
+
+    public func didDismissStorkBySwipe() {
+        delegate?.musicPlayerControllerDidDismissBySwipe()
     }
 }

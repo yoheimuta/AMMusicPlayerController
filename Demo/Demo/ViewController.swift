@@ -43,6 +43,17 @@ class ViewController: UIViewController {
                                              cancelActionTitle: "No"))
 
         let modal = AMMusicPlayerController.make(urls: urls, config: config)
+        modal.delegate = self
         modal.presentPlayer(src: self)
+    }
+}
+
+extension ViewController: AMMusicPlayerDelegate {
+    func musicPlayerControllerDidDismissByTap() {
+        print("DismissByTap")
+    }
+
+    func musicPlayerControllerDidDismissBySwipe() {
+        print("DismissBySwipe")
     }
 }
