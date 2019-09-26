@@ -27,12 +27,22 @@ class ViewController: UIViewController {
     }
 
     @objc func presentModalViewController() {
-        let modal = AMMusicPlayerController.make(urls: [
+        let urls = [
             "https://storage.googleapis.com/maison-great-dev/oss/musicplayer/tagmp3_1473200_1.mp3",
             "https://storage.googleapis.com/maison-great-dev/oss/musicplayer/tagmp3_2160166.mp3",
             "https://storage.googleapis.com/maison-great-dev/oss/musicplayer/tagmp3_4690995.mp3",
             "https://storage.googleapis.com/maison-great-dev/oss/musicplayer/tagmp3_9179181.mp3",
-        ].map { URL(string: $0)! }, index: 0)
+        ].map { URL(string: $0)! }
+
+        let config = AMMusicPlayerConfig(lyricsLabel: "Words",
+                                         confirmConfig: AMMusicPlayerConfig.ConfirmConfig(
+                                             needConfirm: true,
+                                             title: "Dismiss",
+                                             message: "Caution",
+                                             confirmActionTitle: "OK",
+                                             cancelActionTitle: "No"))
+
+        let modal = AMMusicPlayerController.make(urls: urls, config: config)
         modal.presentPlayer(src: self)
     }
 }

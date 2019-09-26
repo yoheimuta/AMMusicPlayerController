@@ -11,6 +11,7 @@ import SPStorkController
 
 public class AMMusicPlayerTableViewDataSource: NSObject, UITableViewDataSource {
     public var player: RxMusicPlayer!
+    var config: AMMusicPlayerConfig!
 
     private enum TableSection: CaseIterable {
         case player
@@ -26,7 +27,7 @@ public class AMMusicPlayerTableViewDataSource: NSObject, UITableViewDataSource {
             return cell
         case .lyrics:
             let cell = lyricsCell(tableView)
-            cell.run(player)
+            cell.run(player, config: config)
             return cell
         }
     }

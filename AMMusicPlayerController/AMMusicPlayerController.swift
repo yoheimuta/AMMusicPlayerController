@@ -27,12 +27,17 @@ public class AMMusicPlayerController: UIViewController {
     public var tableViewDelegate = AMMusicPlayerTableViewDeletegate()
     public var tableViewDataSource = AMMusicPlayerTableViewDataSource()
 
+    private var config: AMMusicPlayerConfig!
+
     /**
      Initialize a controller.
      */
-    public static func make(player: RxMusicPlayer) -> AMMusicPlayerController {
+    public static func make(player: RxMusicPlayer,
+                            config: AMMusicPlayerConfig = AMMusicPlayerConfig.default)
+        -> AMMusicPlayerController {
         let controller = instantiate()
         controller.player = player
+        controller.config = config
         return controller
     }
 
@@ -40,10 +45,13 @@ public class AMMusicPlayerController: UIViewController {
      Initialize a controller.
      */
     public static func make(urls: [URL] = [],
-                            index: Int = 0) -> AMMusicPlayerController {
+                            index: Int = 0,
+                            config: AMMusicPlayerConfig = AMMusicPlayerConfig.default)
+        -> AMMusicPlayerController {
         let controller = instantiate()
         controller.player = RxMusicPlayer(items: urls.map { RxMusicPlayerItem(url: $0) })
         controller.player.playIndex = index
+        controller.config = config
         return controller
     }
 
@@ -60,6 +68,7 @@ public class AMMusicPlayerController: UIViewController {
                               animated flag: Bool = true,
                               completion: (() -> Void)? = nil) {
         let transitionDelegate = SPStorkTransitioningDelegate()
+        transitionDelegate.confirmDelegate = self
         transitioningDelegate = transitionDelegate
         modalPresentationStyle = .custom
         src.present(self, animated: flag, completion: completion)
@@ -73,6 +82,7 @@ public class AMMusicPlayerController: UIViewController {
         tableViewDelegate.tableView = tableView
         tableView.delegate = tableViewDelegate
         tableViewDataSource.player = player
+        tableViewDataSource.config = config
         tableView.dataSource = tableViewDataSource
 
         player.rx.currentItemLyrics()
@@ -105,5 +115,33 @@ public class AMMusicPlayerController: UIViewController {
 
     @objc func dismissAction() {
         SPStorkController.dismissWithConfirmation(controller: self, completion: nil)
+    }
+}
+
+extension AMMusicPlayerController: SPStorkControllerConfirmDelegate {
+
+    open var needConfirm: Bool {
+        return config.confirmConfig.needConfirm
+    }
+
+    open func confirm(_ completion: @escaping (Bool) -> Void) {
+        let c = config.confirmConfig
+        let alertController = UIAlertController(title: c.title,
+                                                message: c.message,
+                                                preferredStyle: .actionSheet)
+
+        let destructive = UIAlertAction(title: c.confirmActionTitle,
+                                        style: .destructive) { _ in
+            completion(true)
+        }
+        alertController.addAction(destructive)
+
+        let cancel = UIAlertAction(title: c.cancelActionTitle,
+                                   style: .cancel) { _ in
+            completion(false)
+        }
+        alertController.addAction(cancel)
+
+        present(alertController, animated: true)
     }
 }

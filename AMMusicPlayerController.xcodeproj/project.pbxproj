@@ -23,6 +23,7 @@
 		FF20C103233C9829002E796C /* AMMusicPlayerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C102233C9829002E796C /* AMMusicPlayerTableViewDataSource.swift */; };
 		FF20C107233CA43F002E796C /* ProgressSlider+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C106233CA43F002E796C /* ProgressSlider+Rx.swift */; };
 		FF20C109233CA454002E796C /* ProgressSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C108233CA454002E796C /* ProgressSlider.swift */; };
+		FF20C10B233CAFCB002E796C /* AMMusicPlayerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C10A233CAFCB002E796C /* AMMusicPlayerConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		FF20C102233C9829002E796C /* AMMusicPlayerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMusicPlayerTableViewDataSource.swift; sourceTree = "<group>"; };
 		FF20C106233CA43F002E796C /* ProgressSlider+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressSlider+Rx.swift"; sourceTree = "<group>"; };
 		FF20C108233CA454002E796C /* ProgressSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressSlider.swift; path = /yoheimuta/Write/program_tmp/swift/AMMusicPlayerController/AMMusicPlayerController/ProgressSlider.swift; sourceTree = "<absolute>"; };
+		FF20C10A233CAFCB002E796C /* AMMusicPlayerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMusicPlayerConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				FF20C0F6233B69AF002E796C /* AMMusicPlayerController.swift */,
 				FF20C100233C95FB002E796C /* AMMusicPlayerTableViewDeletegate.swift */,
 				FF20C102233C9829002E796C /* AMMusicPlayerTableViewDataSource.swift */,
+				FF20C10A233CAFCB002E796C /* AMMusicPlayerConfig.swift */,
 				FF20C0FA233C8AFD002E796C /* AMMusicPlayerController.storyboard */,
 				FF20C0FC233C939C002E796C /* PlayerCell.swift */,
 				FF20C0FE233C93AB002E796C /* LyricsCell.swift */,
@@ -297,6 +300,7 @@
 				FF20C0FD233C939C002E796C /* PlayerCell.swift in Sources */,
 				FF20C0FF233C93AB002E796C /* LyricsCell.swift in Sources */,
 				FF20C0F7233B69AF002E796C /* AMMusicPlayerController.swift in Sources */,
+				FF20C10B233CAFCB002E796C /* AMMusicPlayerConfig.swift in Sources */,
 				FF20C103233C9829002E796C /* AMMusicPlayerTableViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

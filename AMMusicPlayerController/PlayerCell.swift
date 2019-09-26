@@ -30,6 +30,7 @@ class PlayerCell: UITableViewCell {
         disposeBag = DisposeBag()
     }
 
+    // swiftlint:disable cyclomatic_complexity
     func run(_ player: RxMusicPlayer) {
         // 1) Control views
         player.rx.canSendCommand(cmd: .play)
@@ -169,6 +170,25 @@ class PlayerCell: UITableViewCell {
                 return .just(())
             }
             .drive()
+            .disposed(by: disposeBag)
+
+        shuffleButton.rx.tap.asDriver()
+            .drive(onNext: {
+                switch player.shuffleMode {
+                case .off: player.shuffleMode = .songs
+                case .songs: player.shuffleMode = .off
+                }
+            })
+            .disposed(by: disposeBag)
+
+        repeatButton.rx.tap.asDriver()
+            .drive(onNext: {
+                switch player.repeatMode {
+                case .none: player.repeatMode = .one
+                case .one: player.repeatMode = .all
+                case .all: player.repeatMode = .none
+                }
+            })
             .disposed(by: disposeBag)
     }
 }

@@ -157,6 +157,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="lyricsHeader" destination="rQY-JL-yah" id="ufc-9r-73K"/>
                                             <outlet property="lyricsLabel" destination="J6A-7G-x9H" id="n2C-aV-PSc"/>
                                         </connections>
                                     </tableViewCell>

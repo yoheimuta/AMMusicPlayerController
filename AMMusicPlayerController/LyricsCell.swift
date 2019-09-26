@@ -11,6 +11,7 @@ import RxSwift
 import UIKit
 
 class LyricsCell: UITableViewCell {
+    @IBOutlet private var lyricsHeader: UILabel!
     @IBOutlet private var lyricsLabel: UILabel!
 
     private var disposeBag = DisposeBag()
@@ -20,7 +21,10 @@ class LyricsCell: UITableViewCell {
         disposeBag = DisposeBag()
     }
 
-    func run(_ player: RxMusicPlayer) {
+    func run(_ player: RxMusicPlayer,
+             config: AMMusicPlayerConfig) {
+        lyricsHeader.text = config.lyricsLabel
+
         player.rx.currentItemLyrics()
             .distinctUntilChanged()
             .drive(lyricsLabel.rx.text)
