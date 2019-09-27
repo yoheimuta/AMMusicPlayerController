@@ -86,6 +86,7 @@ public class AMMusicPlayerController: UIViewController {
         tableViewDataSource.player = player
         tableViewDataSource.config = config
         tableView.dataSource = tableViewDataSource
+        tableView.tableFooterView = UIView(frame: .zero)
 
         player.rx.currentItemLyrics()
             .do(onNext: { [weak self] _ in
