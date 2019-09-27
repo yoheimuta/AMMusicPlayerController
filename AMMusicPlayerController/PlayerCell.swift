@@ -6,6 +6,7 @@
 //  Copyright © 2019 YOSHIMUTA YOHEI. All rights reserved.
 //
 
+import MediaPlayer
 import RxCocoa
 import RxMusicPlayer
 import RxSwift
@@ -22,6 +23,7 @@ class PlayerCell: UITableViewCell {
     @IBOutlet private var durationLabel: UILabel!
     @IBOutlet private var shuffleButton: UIButton!
     @IBOutlet private var repeatButton: UIButton!
+    @IBOutlet private var volumeView: MPVolumeView!
 
     private var disposeBag = DisposeBag()
 
@@ -30,14 +32,26 @@ class PlayerCell: UITableViewCell {
         disposeBag = DisposeBag()
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        volumeView.showsRouteButton = false
+        for v in volumeView.subviews {
+            if let volumeSlider = v as? UISlider {
+                volumeSlider.minimumValueImage = FrameworkImage.load(named: "icn_volume_min")
+                volumeSlider.maximumValueImage = FrameworkImage.load(named: "icn_volume_on")
+            }
+        }
+    }
+
     // swiftlint:disable cyclomatic_complexity
     func run(_ player: RxMusicPlayer) {
         // 1) Control views
         player.rx.canSendCommand(cmd: .play)
-            .do(onNext: { [weak self] canPlay in
-                self?.playButton.setTitle(canPlay ? "Play" : "Pause", for: .normal)
-            })
-            .drive()
+            .map {
+                FrameworkImage.load(named: $0 ? "play_btn" : "stop_btn")
+            }
+            .drive(playButton.rx.image(for: .normal))
             .disposed(by: disposeBag)
 
         player.rx.canSendCommand(cmd: .next)
@@ -62,7 +76,7 @@ class PlayerCell: UITableViewCell {
 
         player.rx.currentItemRestDurationDisplay()
             .map {
-                guard let rest = $0 else { return "--:--" }
+                guard let rest = $0 else { return "00:00" }
                 return "-\(rest)"
             }
             .drive(durationLabel.rx.text)
@@ -105,23 +119,21 @@ class PlayerCell: UITableViewCell {
             .disposed(by: disposeBag)
 
         player.rx.shuffleMode()
-            .do(onNext: { [weak self] mode in
-                self?.shuffleButton.setTitle(mode == .off ? "Shuffle" : "No Shuffle", for: .normal)
-            })
-            .drive()
+            .map {
+                return FrameworkImage.load(named: $0 == .off ? "icn_shaffle_off" : "icn_shaffle_on")
+            }
+            .drive(shuffleButton.rx.image(for: .normal))
             .disposed(by: disposeBag)
 
         player.rx.repeatMode()
-            .do(onNext: { [weak self] mode in
-                var title = ""
+            .map { mode -> UIImage? in
                 switch mode {
-                case .none: title = "Repeat"
-                case .one: title = "Repeat(All)"
-                case .all: title = "No Repeat"
+                case .none: return FrameworkImage.load(named: "icn_repeat_off")
+                case .one: return FrameworkImage.load(named: "icn_single_repeat_on")
+                case .all: return FrameworkImage.load(named: "icn_repeat_on")
                 }
-                self?.repeatButton.setTitle(title, for: .normal)
-            })
-            .drive()
+            }
+            .drive(repeatButton.rx.image(for: .normal))
             .disposed(by: disposeBag)
 
         player.rx.playerIndex()
@@ -136,12 +148,11 @@ class PlayerCell: UITableViewCell {
 
         // 2) Process the user's input
         let cmd = Driver.merge(
-            playButton.rx.tap.asDriver().map { [weak self] in
-                if self?.playButton.currentTitle == "Play" {
-                    return RxMusicPlayer.Command.play
-                }
-                return RxMusicPlayer.Command.pause
-            },
+            playButton.rx.tap.asDriver()
+                .withLatestFrom(player.rx.canSendCommand(cmd: .play))
+                .map {
+                    $0 ? RxMusicPlayer.Command.play : RxMusicPlayer.Command.pause
+                },
             nextButton.rx.tap.asDriver().map { RxMusicPlayer.Command.next },
             prevButton.rx.tap.asDriver().map { RxMusicPlayer.Command.previous },
             seekBar.rx.controlEvent(.valueChanged).asDriver()
@@ -151,6 +162,7 @@ class PlayerCell: UITableViewCell {
                 }
                 .distinctUntilChanged()
         )
+        .startWith(.prefetch)
 
         player.run(cmd: cmd)
             .do(onNext: { status in
@@ -184,9 +196,9 @@ class PlayerCell: UITableViewCell {
         repeatButton.rx.tap.asDriver()
             .drive(onNext: {
                 switch player.repeatMode {
-                case .none: player.repeatMode = .one
-                case .one: player.repeatMode = .all
-                case .all: player.repeatMode = .none
+                case .none: player.repeatMode = .all
+                case .all: player.repeatMode = .one
+                case .one: player.repeatMode = .none
                 }
             })
             .disposed(by: disposeBag)
