@@ -1,9 +1,9 @@
 {
-  "commitish" : "0.1.2",
+  "commitish" : "0.1.3",
   "iOS" : [
     {
       "name" : "RxMusicPlayer",
-      "hash" : "29ae0772d313252c8374a9c05652c32cd9b56fb6f56c025f32afbe951083775f",
+      "hash" : "a0cbdd4c7ad336bb939fe0f3989142d08f6947491fc27598668aa3910db388b2",
       "swiftToolchainVersion" : "5.0 (swiftlang-1001.0.69.5 clang-1001.0.46.3)"
     }
   ]
