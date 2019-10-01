@@ -89,6 +89,7 @@ public class AMMusicPlayerController: UIViewController {
         tableView.tableFooterView = UIView(frame: .zero)
 
         player.rx.currentItemLyrics()
+            .distinctUntilChanged()
             .do(onNext: { [weak self] _ in
                 self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 1)],
                                            with: UITableView.RowAnimation.automatic)
