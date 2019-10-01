@@ -27,6 +27,7 @@
 		FF20C10D233CC0C3002E796C /* AMMusicPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C10C233CC0C3002E796C /* AMMusicPlayerDelegate.swift */; };
 		FF20C116233E00BA002E796C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF20C115233E00BA002E796C /* Media.xcassets */; };
 		FF20C118233E0933002E796C /* FrameworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C117233E0933002E796C /* FrameworkImage.swift */; };
+		FF20C11A23430A07002E796C /* AMMusicPlayerTableViewDataSource+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C11923430A06002E796C /* AMMusicPlayerTableViewDataSource+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		FF20C10C233CC0C3002E796C /* AMMusicPlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMusicPlayerDelegate.swift; sourceTree = "<group>"; };
 		FF20C115233E00BA002E796C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		FF20C117233E0933002E796C /* FrameworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkImage.swift; sourceTree = "<group>"; };
+		FF20C11923430A06002E796C /* AMMusicPlayerTableViewDataSource+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AMMusicPlayerTableViewDataSource+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				FF20C0F6233B69AF002E796C /* AMMusicPlayerController.swift */,
 				FF20C100233C95FB002E796C /* AMMusicPlayerTableViewDeletegate.swift */,
 				FF20C102233C9829002E796C /* AMMusicPlayerTableViewDataSource.swift */,
+				FF20C11923430A06002E796C /* AMMusicPlayerTableViewDataSource+Rx.swift */,
 				FF20C10A233CAFCB002E796C /* AMMusicPlayerConfig.swift */,
 				FF20C10C233CC0C3002E796C /* AMMusicPlayerDelegate.swift */,
 				FF20C0FA233C8AFD002E796C /* AMMusicPlayerController.storyboard */,
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF20C11A23430A07002E796C /* AMMusicPlayerTableViewDataSource+Rx.swift in Sources */,
 				FF20C118233E0933002E796C /* FrameworkImage.swift in Sources */,
 				FF20C10D233CC0C3002E796C /* AMMusicPlayerDelegate.swift in Sources */,
 				FF20C109233CA454002E796C /* ProgressSlider.swift in Sources */,

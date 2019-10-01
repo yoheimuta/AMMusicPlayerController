@@ -6,11 +6,13 @@
 //  Copyright © 2019 YOSHIMUTA YOHEI. All rights reserved.
 //
 
+import RxCocoa
 import RxMusicPlayer
 import SPStorkController
 
 public class AMMusicPlayerTableViewDataSource: NSObject, UITableViewDataSource {
     public var player: RxMusicPlayer!
+    let playerFailureRelay = PublishRelay<Error>()
     var config: AMMusicPlayerConfig!
 
     private enum TableSection: CaseIterable {
@@ -23,7 +25,7 @@ public class AMMusicPlayerTableViewDataSource: NSObject, UITableViewDataSource {
         switch TableSection.allCases[indexPath.section] {
         case .player:
             let cell = playerCell(tableView)
-            cell.run(player)
+            cell.run(player, playerFailureRelay: playerFailureRelay)
             return cell
         case .lyrics:
             let cell = lyricsCell(tableView)

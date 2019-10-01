@@ -36,7 +36,9 @@ public class AMMusicPlayerController: UIViewController {
     public static func make(player: RxMusicPlayer,
                             config: AMMusicPlayerConfig = AMMusicPlayerConfig.default)
         -> AMMusicPlayerController {
-        let controller = instantiate()
+        let controller = UIStoryboard(name: "AMMusicPlayerController", bundle: Bundle(for: self))
+            // swiftlint:disable:next force_cast
+            .instantiateInitialViewController() as! AMMusicPlayerController
         controller.player = player
         controller.config = config
         return controller
@@ -48,18 +50,12 @@ public class AMMusicPlayerController: UIViewController {
     public static func make(urls: [URL] = [],
                             index: Int = 0,
                             config: AMMusicPlayerConfig = AMMusicPlayerConfig.default)
-        -> AMMusicPlayerController {
-        let controller = instantiate()
-        controller.player = RxMusicPlayer(items: urls.map { RxMusicPlayerItem(url: $0) })
-        controller.player.playIndex = index
-        controller.config = config
-        return controller
-    }
-
-    private static func instantiate() -> AMMusicPlayerController {
-        return UIStoryboard(name: "AMMusicPlayerController", bundle: Bundle(for: self))
-            // swiftlint:disable:next force_cast
-            .instantiateInitialViewController() as! AMMusicPlayerController
+        -> AMMusicPlayerController? {
+        guard let player = RxMusicPlayer(items: urls.map { RxMusicPlayerItem(url: $0) }) else {
+            return nil
+        }
+        player.playIndex = index
+        return make(player: player, config: config)
     }
 
     /**
@@ -93,6 +89,14 @@ public class AMMusicPlayerController: UIViewController {
             .do(onNext: { [weak self] _ in
                 self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 1)],
                                            with: UITableView.RowAnimation.automatic)
+            })
+            .drive()
+            .disposed(by: disposeBag)
+
+        tableViewDataSource.rx.playerDidFail
+            .asDriver()
+            .do(onNext: { [weak self] err in
+                self?.delegate?.musicPlayerControllerDidFail(err: err)
             })
             .drive()
             .disposed(by: disposeBag)

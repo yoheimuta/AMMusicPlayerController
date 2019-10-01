@@ -41,13 +41,17 @@ class ViewController: UIViewController {
 
         let modal = AMMusicPlayerController.make(urls: urls,
                                                  index: index,
-                                                 config: config)
+                                                 config: config)!
         modal.delegate = self
         modal.presentPlayer(src: self)
     }
 }
 
 extension ViewController: AMMusicPlayerDelegate {
+    func musicPlayerControllerDidFail(err: Error) {
+        print(err)
+    }
+
     func musicPlayerControllerDidDismissByTap() {
         print("DismissByTap")
     }

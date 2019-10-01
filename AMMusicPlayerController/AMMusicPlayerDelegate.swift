@@ -11,4 +11,5 @@ import Foundation
 public protocol AMMusicPlayerDelegate: class {
     func musicPlayerControllerDidDismissByTap()
     func musicPlayerControllerDidDismissBySwipe()
+    func musicPlayerControllerDidFail(err: Error)
 }

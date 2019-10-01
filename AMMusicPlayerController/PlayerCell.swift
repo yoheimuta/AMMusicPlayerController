@@ -45,7 +45,8 @@ class PlayerCell: UITableViewCell {
     }
 
     // swiftlint:disable cyclomatic_complexity
-    func run(_ player: RxMusicPlayer) {
+    func run(_ player: RxMusicPlayer,
+             playerFailureRelay: PublishRelay<Error>) {
         // 1) Control views
         player.rx.canSendCommand(cmd: .play)
             .map {
@@ -171,13 +172,10 @@ class PlayerCell: UITableViewCell {
             .flatMap { status -> Driver<()> in
                 switch status {
                 case let RxMusicPlayer.Status.failed(err: err):
-                    print(err)
-
+                    playerFailureRelay.accept(err)
                 case let RxMusicPlayer.Status.critical(err: err):
-                    print(err)
-
-                default:
-                    print(status)
+                    playerFailureRelay.accept(err)
+                default: ()
                 }
                 return .just(())
             }
