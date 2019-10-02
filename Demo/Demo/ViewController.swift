@@ -48,8 +48,19 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: AMMusicPlayerDelegate {
-    func musicPlayerControllerDidFail(err: Error) {
+    func musicPlayerControllerDidFail(controller: AMMusicPlayerController?,
+                                      err: AMMusicPlayerError) {
         print(err)
+
+        switch err {
+        case let AMMusicPlayerError.playerError(inner):
+            switch inner {
+            case URLError.resourceUnavailable:
+                controller?.dismiss(animated: true)
+            default: ()
+            }
+        default: ()
+        }
     }
 
     func musicPlayerControllerDidDismissByTap() {

@@ -28,6 +28,7 @@
 		FF20C116233E00BA002E796C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF20C115233E00BA002E796C /* Media.xcassets */; };
 		FF20C118233E0933002E796C /* FrameworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C117233E0933002E796C /* FrameworkImage.swift */; };
 		FF20C11A23430A07002E796C /* AMMusicPlayerTableViewDataSource+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C11923430A06002E796C /* AMMusicPlayerTableViewDataSource+Rx.swift */; };
+		FF20C11C234357C1002E796C /* AMMusicPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20C11B234357C1002E796C /* AMMusicPlayerError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		FF20C115233E00BA002E796C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		FF20C117233E0933002E796C /* FrameworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkImage.swift; sourceTree = "<group>"; };
 		FF20C11923430A06002E796C /* AMMusicPlayerTableViewDataSource+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AMMusicPlayerTableViewDataSource+Rx.swift"; sourceTree = "<group>"; };
+		FF20C11B234357C1002E796C /* AMMusicPlayerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMusicPlayerError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				FF20C11923430A06002E796C /* AMMusicPlayerTableViewDataSource+Rx.swift */,
 				FF20C10A233CAFCB002E796C /* AMMusicPlayerConfig.swift */,
 				FF20C10C233CC0C3002E796C /* AMMusicPlayerDelegate.swift */,
+				FF20C11B234357C1002E796C /* AMMusicPlayerError.swift */,
 				FF20C0FA233C8AFD002E796C /* AMMusicPlayerController.storyboard */,
 				FF20C0FC233C939C002E796C /* PlayerCell.swift */,
 				FF20C0FE233C93AB002E796C /* LyricsCell.swift */,
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF20C11A23430A07002E796C /* AMMusicPlayerTableViewDataSource+Rx.swift in Sources */,
+				FF20C11C234357C1002E796C /* AMMusicPlayerError.swift in Sources */,
 				FF20C118233E0933002E796C /* FrameworkImage.swift in Sources */,
 				FF20C10D233CC0C3002E796C /* AMMusicPlayerDelegate.swift in Sources */,
 				FF20C109233CA454002E796C /* ProgressSlider.swift in Sources */,

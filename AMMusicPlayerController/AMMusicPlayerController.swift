@@ -96,7 +96,8 @@ public class AMMusicPlayerController: UIViewController {
         tableViewDataSource.rx.playerDidFail
             .asDriver()
             .do(onNext: { [weak self] err in
-                self?.delegate?.musicPlayerControllerDidFail(err: err)
+                self?.delegate?.musicPlayerControllerDidFail(controller: self,
+                                                             err: AMMusicPlayerError(err: err))
             })
             .drive()
             .disposed(by: disposeBag)
