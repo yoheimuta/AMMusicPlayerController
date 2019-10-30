@@ -12,8 +12,8 @@ import SPStorkController
 
 public class AMMusicPlayerTableViewDataSource: NSObject, UITableViewDataSource {
     public var player: RxMusicPlayer!
+    public var config: AMMusicPlayerConfig!
     let playerFailureRelay = PublishRelay<Error>()
-    var config: AMMusicPlayerConfig!
 
     private enum TableSection: CaseIterable {
         case player
@@ -25,7 +25,7 @@ public class AMMusicPlayerTableViewDataSource: NSObject, UITableViewDataSource {
         switch TableSection.allCases[indexPath.section] {
         case .player:
             let cell = playerCell(tableView)
-            cell.run(player, playerFailureRelay: playerFailureRelay)
+            cell.run(player, playerFailureRelay: playerFailureRelay, config: config.controlConfig)
             return cell
         case .lyrics:
             let cell = lyricsCell(tableView)

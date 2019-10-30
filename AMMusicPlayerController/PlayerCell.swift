@@ -36,22 +36,23 @@ class PlayerCell: UITableViewCell {
         super.awakeFromNib()
 
         volumeView.showsRouteButton = false
-        for v in volumeView.subviews {
-            if let volumeSlider = v as? UISlider {
-                volumeSlider.minimumValueImage = FrameworkImage.load(named: "icn_volume_min")
-                volumeSlider.maximumValueImage = FrameworkImage.load(named: "icn_volume_on")
-            }
-        }
     }
 
     // swiftlint:disable cyclomatic_complexity
     func run(_ player: RxMusicPlayer,
-             playerFailureRelay: PublishRelay<Error>) {
-        // 1) Control views
-        player.rx.canSendCommand(cmd: .play)
-            .map {
-                FrameworkImage.load(named: $0 ? "play_btn" : "stop_btn")
+             playerFailureRelay: PublishRelay<Error>,
+             config: AMMusicPlayerConfig.ControlConfig) {
+        // 1) Set images
+        for v in volumeView.subviews {
+            if let volumeSlider = v as? UISlider {
+                volumeSlider.minimumValueImage = config.volumeMinImage
+                volumeSlider.maximumValueImage = config.volumeMaxImage
             }
+        }
+
+        // 2) Control views
+        player.rx.canSendCommand(cmd: .play)
+            .map { $0 ? config.playButtonImage : config.pauseButtonImage }
             .drive(playButton.rx.image(for: .normal))
             .disposed(by: disposeBag)
 
@@ -120,18 +121,16 @@ class PlayerCell: UITableViewCell {
             .disposed(by: disposeBag)
 
         player.rx.shuffleMode()
-            .map {
-                return FrameworkImage.load(named: $0 == .off ? "icn_shaffle_off" : "icn_shaffle_on")
-            }
+            .map { $0 == .off ? config.shuffleOffImage : config.shuffleOnImage }
             .drive(shuffleButton.rx.image(for: .normal))
             .disposed(by: disposeBag)
 
         player.rx.repeatMode()
             .map { mode -> UIImage? in
                 switch mode {
-                case .none: return FrameworkImage.load(named: "icn_repeat_off")
-                case .one: return FrameworkImage.load(named: "icn_single_repeat_on")
-                case .all: return FrameworkImage.load(named: "icn_repeat_on")
+                case .none: return config.repeatNoneImage
+                case .one: return config.repeatOneImage
+                case .all: return config.repeatAllImage
                 }
             }
             .drive(repeatButton.rx.image(for: .normal))
@@ -147,7 +146,7 @@ class PlayerCell: UITableViewCell {
             .drive()
             .disposed(by: disposeBag)
 
-        // 2) Process the user's input
+        // 3) Process the user's input
         let cmd = Driver.merge(
             playButton.rx.tap.asDriver()
                 .withLatestFrom(player.rx.canSendCommand(cmd: .play))

@@ -33,7 +33,7 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vv-Ha-AZA">
                                                             <rect key="frame" x="0.0" y="31.5" width="23" height="22"/>
-                                                            <state key="normal" image="icn_shaffle_off"/>
+                                                            <state key="normal" image="icn_shuffle_off"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAa-Wp-F95">
                                                             <rect key="frame" x="68.5" y="31.5" width="20" height="22"/>
@@ -187,7 +187,7 @@
     </scenes>
     <resources>
         <image name="icn_repeat_off" width="23" height="20"/>
-        <image name="icn_shaffle_off" width="23" height="20"/>
+        <image name="icn_shuffle_off" width="23" height="20"/>
         <image name="icn_skip_back" width="20" height="20"/>
         <image name="icn_skip_next" width="20" height="20"/>
         <image name="play_btn" width="85" height="85"/>
