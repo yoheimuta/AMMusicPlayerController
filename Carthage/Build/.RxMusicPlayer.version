@@ -3,8 +3,8 @@
   "iOS" : [
     {
       "name" : "RxMusicPlayer",
-      "hash" : "530704dc6c72a24d86c2598bfd597da993837ea97a0b39630217f54af8d660c1",
-      "swiftToolchainVersion" : "5.0 (swiftlang-1001.0.69.5 clang-1001.0.46.3)"
+      "hash" : "5ad8267d40f8bf6c85ae879c137f7acdce50a37a33e56aae889bda2dfb4d6873",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
     }
   ]
 }
