@@ -32,22 +32,22 @@
                                                     <rect key="frame" x="30" y="442" width="354" height="85"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vv-Ha-AZA">
-                                                            <rect key="frame" x="0.0" y="31.5" width="23" height="22"/>
+                                                            <rect key="frame" x="0.0" y="22.5" width="46" height="40"/>
                                                             <state key="normal" image="icn_shuffle_off"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAa-Wp-F95">
-                                                            <rect key="frame" x="68.5" y="31.5" width="20" height="22"/>
+                                                            <rect key="frame" x="83" y="25.5" width="31" height="34"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="xAa-Wp-F95" secondAttribute="height" multiplier="10:11" id="Z5N-eO-7Kg"/>
                                                             </constraints>
                                                             <state key="normal" image="icn_skip_back"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4A-Ml-nek">
-                                                            <rect key="frame" x="133.5" y="0.0" width="85" height="85"/>
+                                                            <rect key="frame" x="151" y="5" width="75" height="75"/>
                                                             <state key="normal" image="play_btn"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irx-dd-n6S">
-                                                            <rect key="frame" x="264" y="31.5" width="22" height="22"/>
+                                                            <rect key="frame" x="263" y="27" width="31" height="31"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Irx-dd-n6S" secondAttribute="height" multiplier="1:1" id="OIJ-3G-BHl"/>
                                                             </constraints>
@@ -188,8 +188,8 @@
     <resources>
         <image name="icn_repeat_off" width="23" height="20"/>
         <image name="icn_shuffle_off" width="23" height="20"/>
-        <image name="icn_skip_back" width="20" height="20"/>
-        <image name="icn_skip_next" width="20" height="20"/>
-        <image name="play_btn" width="85" height="85"/>
+        <image name="icn_skip_back" width="31" height="20"/>
+        <image name="icn_skip_next" width="31" height="20"/>
+        <image name="play_btn" width="75" height="75"/>
     </resources>
 </document>

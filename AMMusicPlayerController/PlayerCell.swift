@@ -49,6 +49,12 @@ class PlayerCell: UITableViewCell {
                 volumeSlider.maximumValueImage = config.volumeMaxImage
             }
         }
+        if let image = config.nextButtonImage {
+            nextButton.setImage(image, for: .normal)
+        }
+        if let image = config.prevButtonImage {
+            prevButton.setImage(image, for: .normal)
+        }
 
         // 2) Control views
         player.rx.canSendCommand(cmd: .play)
