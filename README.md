@@ -20,6 +20,8 @@ For details, refer to the [Demo project](https://github.com/yoheimuta/AMMusicPla
 
 ### Demo
 
+<img src="doc/demo.gif" alt="example" width="300"/>
+
 ```swift
 import AMMusicPlayerController
 import UIKit
@@ -42,6 +44,13 @@ class ViewController: UIViewController {
 }
 
 ```
+
+## Dependencies
+
+- RxMusicPlayer
+  - https://github.com/yoheimuta/RxMusicPlayer
+- SPStorkController
+  - https://github.com/ivanvorobei/SPStorkController
 
 ## Contributing
 
