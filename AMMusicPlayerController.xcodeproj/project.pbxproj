@@ -60,7 +60,7 @@
 		FF20C100233C95FB002E796C /* AMMusicPlayerTableViewDeletegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMusicPlayerTableViewDeletegate.swift; sourceTree = "<group>"; };
 		FF20C102233C9829002E796C /* AMMusicPlayerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMusicPlayerTableViewDataSource.swift; sourceTree = "<group>"; };
 		FF20C106233CA43F002E796C /* ProgressSlider+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressSlider+Rx.swift"; sourceTree = "<group>"; };
-		FF20C108233CA454002E796C /* ProgressSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressSlider.swift; path = /yoheimuta/Write/program_tmp/swift/AMMusicPlayerController/AMMusicPlayerController/ProgressSlider.swift; sourceTree = "<absolute>"; };
+		FF20C108233CA454002E796C /* ProgressSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSlider.swift; sourceTree = "<group>"; };
 		FF20C10A233CAFCB002E796C /* AMMusicPlayerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMusicPlayerConfig.swift; sourceTree = "<group>"; };
 		FF20C10C233CC0C3002E796C /* AMMusicPlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMusicPlayerDelegate.swift; sourceTree = "<group>"; };
 		FF20C115233E00BA002E796C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
